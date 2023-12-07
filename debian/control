@@ -1,15 +1,28 @@
-Source: template-repository
-Section: unknown
+Source: golang-github-vividcortex-gohistogram
+Maintainer: Debian Go Packaging Team <team+pkg-go@tracker.debian.org>
+Uploaders: Mathias Gibbens <gibmat@debian.org>
+Section: golang
+Testsuite: autopkgtest-pkg-go
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Build-Depends: debhelper-compat (= 13),
+               dh-golang,
+               golang-any
+Standards-Version: 4.6.1
+Vcs-Browser: https://salsa.debian.org/go-team/packages/golang-github-vividcortex-gohistogram
+Vcs-Git: https://salsa.debian.org/go-team/packages/golang-github-vividcortex-gohistogram.git
+Homepage: https://github.com/VividCortex/gohistogram
+Rules-Requires-Root: no
+XS-Go-Import-Path: github.com/VividCortex/gohistogram
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: golang-github-vividcortex-gohistogram-dev
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}
+Description: Streaming approximate histograms in Go (library)
+ This package provides Streaming Approximate Histograms for efficient
+ quantile approximations.
+ .
+ The histograms in this package are based on the algorithms found in
+ Ben-Haim & Yom-Tov's "A Streaming Parallel Decision Tree Algorithm".
+ Histogram bins do not have a preset size. As values stream into the
+ histogram, bins are dynamically added and merged.
